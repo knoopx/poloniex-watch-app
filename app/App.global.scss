@@ -1,0 +1,38 @@
+$primary-color: darkgray;
+
+@import '~font-awesome/css/font-awesome.min.css';
+
+* {
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+html, body, #root {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: #5a5a5a;
+  font-family: Helvetica;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #eee;
+
+      td {
+        padding: 8px 16px;
+      }
+    }
+  }
+}
