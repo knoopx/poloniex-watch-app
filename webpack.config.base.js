@@ -1,29 +1,24 @@
-import path from 'path';
+const path = require('path')
 
-export default {
+module.exports = {
+  target: 'electron-renderer',
+  externals: ['plnx', 'promisify-node', 'promise-rate-limit', 'source-map-support', 'electron-debug', 'electron-context-menu'],
   module: {
     loaders: [
       {
-        test: /\.global\.scss$/,
-        loaders: [
-          'style-loader',
-          'css-loader?sourceMap',
-          'sass'
-        ]
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'sass']
       },
       {
-        test: /^((?!\.global).)*\.scss$/,
-        loaders: [
-          'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          'sass'
-        ]
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
       },
       {
         test: /\.jsx?$/,
         loaders: ['babel-loader'],
         exclude: /node_modules/
-      }, {
+      },
+      {
         test: /\.json$/,
         loader: 'json-loader'
       },
@@ -45,9 +40,5 @@ export default {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
     packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main']
-  },
-  plugins: [
-
-  ],
-  externals: ['plnx', 'promisify-node', 'promise-rate-limit', 'source-map-support', 'electron-debug', 'electron-context-menu', 'electron-notifications']
-};
+  }
+}

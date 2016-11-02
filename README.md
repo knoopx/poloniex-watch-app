@@ -11,4 +11,4 @@ A desktop client for poloniex.com. Watch markets and track your orders from your
 
     $ git clone git@github.com:knoopx/poloniex-watch.git
     $ npm i
-    $ npm run dev
+    $ npm run development
